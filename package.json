@@ -4,8 +4,8 @@
   "description": "Normalize charset",
   "main": "index.js",
   "scripts": {
-    "precommit": "lint-staged",
-    "test": "mocha"
+    "test": "mocha --reporter spec --bail --check-leaks test/",
+    "precommit": "lint-staged"
   },
   "lint-staged": {
     "*.js": [

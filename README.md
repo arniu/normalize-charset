@@ -1,5 +1,8 @@
 # Normalize Charset
 
+[![Travis](https://img.shields.io/travis/arniu/normalize-charset.svg)]()
+[![npm](https://img.shields.io/npm/v/normalize-charset.svg)]()
+
 编码是个大问题。
 
 像 UTF8、UTF16 这些称谓，严格来讲并无此类编码，但约定俗成，文档或者编码中会经常用到。
