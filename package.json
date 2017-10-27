@@ -1,6 +1,6 @@
 {
   "name": "normalize-charset",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Normalize charset",
   "main": "index.js",
   "scripts": {
