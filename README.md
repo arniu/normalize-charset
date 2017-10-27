@@ -3,27 +3,37 @@
 [![Travis](https://img.shields.io/travis/arniu/normalize-charset.svg)](https://travis-ci.org/arniu/normalize-charset)
 [![npm](https://img.shields.io/npm/v/normalize-charset.svg)](https://www.npmjs.com/package/normalize-charset)
 
-编码是个大问题。
+Map charset to its normalized form, for example **UTF8** to **UTF-8**.
 
-像 UTF8、UTF16 这些称谓，严格来讲并无此类编码，但约定俗成，文档或者编码中会经常用到。
+## Motivation
 
-碰到那些严厉的主儿，比如 [Error: unsupported charset "UTF8"](https://github.com/expressjs/body-parser/issues/50)，愣是声称
-这些不合标准，坚决不予支持，就会导致一些第三方服务（比如支付宝的异步通知）没法用。
+Encoding is a big thing. Terms like **UTF8**, **UTF16** are widely used, but not exist according to [RFC 5987][rfc5987].
 
-## 安装
+This module is to solve problems like [Error: unsupported charset "UTF8"][issue50].
+
+## Installation
 
 ```
 npm install normalize-charset
 ```
 
-## 用作 `express` 中间件
+## Use as [express][express] middleware
 
 ```javascript
 app.use(require('normalize-charset').middleware)
 ```
 
-## 给 `content-type` 打补丁
+## Use to patch [content-type][content-type]
 
 ```javascript
 require('normalize-charset').patchContentType()
 ```
+
+> [content-type][content-type] is used to parse charset by [body-parser][body-parser]
+
+
+[rfc5987]: https://tools.ietf.org/html/rfc5987
+[issue50]: https://github.com/expressjs/body-parser/issues/50
+[content-type]: https://www.npmjs.com/package/content-type
+[body-parser]: https://www.npmjs.com/package/body-parser
+[express]: https://www.npmjs.com/package/express

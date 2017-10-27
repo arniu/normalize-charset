@@ -20,8 +20,7 @@
   "keywords": [
     "charset",
     "connect",
-    "express",
-    "koa"
+    "express"
   ],
   "author": "Arniu Tseng <arniu2006@gmail.com>",
   "license": "MIT",
