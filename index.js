@@ -67,7 +67,7 @@ function patchContentType() {
 
     var format = contentType.format
     contentType.format = function(arg) {
-      if (arg && arg.parameters.charset) {
+      if (arg && arg.parameters && arg.parameters.charset) {
         arg.parameters.charset = normalize(arg.parameters.charset)
       }
 

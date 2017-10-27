@@ -37,7 +37,7 @@ describe('normalizeCharset.middleware', function() {
       })
   })
 
-  it('should pass if charset no given', function(done) {
+  it('should pass if charset not given', function(done) {
     request(app)
       .get('/anywhere')
       .set('Content-Type', 'application/json')
@@ -54,7 +54,7 @@ describe('normalizeCharset.middleware', function() {
       })
   })
 
-  it('should fail if content-type no given', function(done) {
+  it('should fail if content-type not given', function(done) {
     request(app)
       .get('/anywhere')
       .expect(500)
