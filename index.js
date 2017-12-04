@@ -3,7 +3,7 @@ var CHARSET_MAP = {
   utf16: 'utf-16'
 }
 
-var CHARSET_RE = /(charset\s{0,10}=\s{0,10}['"]? {0,10})([\w\-]{1,100})/i
+var CHARSET_RE = /(charset\s{0,10}=\s{0,10}['"]? {0,10})([\w-]{1,100})/i
 
 var CONTENT_TYPE = 'content-type'
 
@@ -14,7 +14,7 @@ var CONTENT_TYPE = 'content-type'
  * @param {?string} charset
  * @return {?string}
  */
-function normalize(charset) {
+function normalize (charset) {
   if (typeof charset === 'string') {
     return CHARSET_MAP[charset.toLowerCase()] || charset
   }
@@ -30,11 +30,11 @@ function normalize(charset) {
  * @param res
  * @param next
  */
-function middleware(req, res, next) {
+function middleware (req, res, next) {
   if (req.headers[CONTENT_TYPE]) {
     req.headers[CONTENT_TYPE] = req.headers[CONTENT_TYPE].replace(
       CHARSET_RE,
-      function(match, leading, charset) {
+      function (match, leading, charset) {
         return leading + normalize(charset)
       }
     )
@@ -46,7 +46,7 @@ function middleware(req, res, next) {
 /**
  * Patch `content-type` to correct charset
  */
-function patchContentType() {
+function patchContentType () {
   try {
     var contentType = require('content-type')
     if (contentType.__PATCHED__ALREADY__) {
@@ -56,7 +56,7 @@ function patchContentType() {
     contentType.__PATCHED__ALREADY__ = true
 
     var parse = contentType.parse
-    contentType.parse = function(arg) {
+    contentType.parse = function (arg) {
       var obj = parse(arg)
       if (obj && obj.parameters.charset) {
         obj.parameters.charset = normalize(obj.parameters.charset)
@@ -66,7 +66,7 @@ function patchContentType() {
     }
 
     var format = contentType.format
-    contentType.format = function(arg) {
+    contentType.format = function (arg) {
       if (arg && arg.parameters && arg.parameters.charset) {
         arg.parameters.charset = normalize(arg.parameters.charset)
       }

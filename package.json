@@ -5,13 +5,21 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --reporter spec --bail --check-leaks test/",
+    "lint": "prettier --write **/*.js; standard --fix",
     "precommit": "lint-staged"
   },
   "lint-staged": {
     "*.js": [
+      "npm test",
       "prettier --write",
+      "standard --fix",
       "git add"
     ]
+  },
+  "standard": {
+    "env": {
+      "mocha": true
+    }
   },
   "repository": {
     "type": "git",
@@ -32,9 +40,10 @@
     "content-type": "^1.0.4",
     "express": "^4.16.2",
     "husky": "^0.14.3",
-    "lint-staged": "^4.3.0",
+    "lint-staged": "^6.0.0",
     "mocha": "^4.0.1",
-    "prettier": "^1.7.4",
+    "prettier": "^1.8.2",
+    "standard": "^10.0.3",
     "supertest": "^3.0.0"
   }
 }
