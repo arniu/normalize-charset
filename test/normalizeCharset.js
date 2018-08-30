@@ -4,7 +4,7 @@ var normalizeCharset = require('..')
 function makeApp () {
   var app = require('express')()
   var contentType = require('content-type')
-  app.use(normalizeCharset.middleware)
+  app.use(normalizeCharset)
   app.use(function (req, res) {
     try {
       var parsed = contentType.parse(req)
@@ -21,7 +21,7 @@ function makeApp () {
   return app
 }
 
-describe('normalizeCharset.middleware', function () {
+describe('normalizeCharset', function () {
   var app = makeApp()
 
   it('should correct utf8 to utf-8', function (done) {

@@ -24,13 +24,13 @@ function normalize (charset) {
 
 /**
  *
- * Connect-styled middleware to correct charset
+ * Connect-styled middleware to normalize charset
  *
  * @param req
  * @param res
  * @param next
  */
-function middleware (req, res, next) {
+function normalizeCharset (req, res, next) {
   if (req.headers[CONTENT_TYPE]) {
     req.headers[CONTENT_TYPE] = req.headers[CONTENT_TYPE].replace(
       CHARSET_RE,
@@ -78,6 +78,8 @@ function patchContentType () {
   }
 }
 
-exports.normalize = normalize
-exports.middleware = middleware
-exports.patchContentType = patchContentType
+normalizeCharset.normalize = normalize
+normalizeCharset.middleware = normalizeCharset
+normalizeCharset.patchContentType = patchContentType
+
+module.exports = normalizeCharset

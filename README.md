@@ -17,10 +17,10 @@ This module is to solve problems like [Error: unsupported charset "UTF8"][issue5
 npm install normalize-charset
 ```
 
-## Use as [express][express] middleware
+## Use as an [express][express] middleware
 
 ```javascript
-app.use(require('normalize-charset').middleware)
+app.use(require('normalize-charset'))
 ```
 
 ## Use to patch [content-type][content-type]
@@ -30,7 +30,6 @@ require('normalize-charset').patchContentType()
 ```
 
 > [content-type][content-type] is used to parse charset by [body-parser][body-parser]
-
 
 [rfc5987]: https://tools.ietf.org/html/rfc5987
 [issue50]: https://github.com/expressjs/body-parser/issues/50
