@@ -3,10 +3,17 @@
   "version": "0.2.1",
   "description": "Normalize charset",
   "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "scripts": {
     "test": "mocha --reporter spec --bail --check-leaks test/",
     "lint": "prettier --write **/*.js; standard --fix",
     "precommit": "lint-staged"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
   },
   "lint-staged": {
     "*.js": [
