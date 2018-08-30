@@ -151,3 +151,4 @@ $RECYCLE.BIN/
 
 # yarn
 yarn.lock
+package-lock.json
