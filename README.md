@@ -1,7 +1,7 @@
 # Normalize Charset
 
 [![Travis](https://img.shields.io/travis/arniu/normalize-charset.svg)](https://travis-ci.org/arniu/normalize-charset)
-[![npm](https://img.shields.io/npm/v/normalize-charset.svg)](https://www.npmjs.com/package/normalize-charset)
+[![npm](https://img.shields.io/npm/v/normalize-charset.svg)](https://www.npmjs.com/package/normalize-charset) [![Greenkeeper badge](https://badges.greenkeeper.io/arniu/normalize-charset.svg)](https://greenkeeper.io/)
 
 Map charset to its normalized form, for example **UTF8** to **UTF-8**.
 
