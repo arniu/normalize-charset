@@ -8,20 +8,29 @@
   ],
   "scripts": {
     "test": "mocha --reporter spec --bail --check-leaks test/",
-    "lint": "prettier --write **/*.js; standard --fix",
-    "precommit": "lint-staged"
+    "prelint": "prettier --write './**/*.{js,md,yml}'",
+    "lint": "standard --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm test"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "standard --fix",
+      "git add"
+    ],
+    "*.{md,yml}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "prettier": {
     "semi": false,
     "singleQuote": true
-  },
-  "lint-staged": {
-    "*.js": [
-      "npm test",
-      "prettier --write",
-      "standard --fix",
-      "git add"
-    ]
   },
   "standard": {
     "env": {
@@ -37,11 +46,9 @@
     "connect",
     "express"
   ],
-  "author": "Arniu Tseng <arniu2006@gmail.com>",
+  "author": "Arniu Tseng",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/arniu/normalize-charset/issues"
-  },
+  "bugs": "https://github.com/arniu/normalize-charset/issues",
   "homepage": "https://github.com/arniu/normalize-charset#readme",
   "devDependencies": {
     "content-type": "^1.0.4",
