@@ -52,7 +52,7 @@
   "homepage": "https://github.com/arniu/normalize-charset#readme",
   "devDependencies": {
     "content-type": "^1.0.4",
-    "express": "^4.16.3",
+    "express": "^4.17.1",
     "husky": "^2.0.0",
     "lint-staged": "^8.1.1",
     "mocha": "^6.0.0",
